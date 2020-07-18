@@ -1,4 +1,5 @@
 import time
+from selenium.webdriver.common.keys import Keys
 from configs import(
     get_web_driver_options,
     get_chrome_driver,
@@ -38,7 +39,7 @@ class AmazonAPI():
 
     def get_products_links(self):
         self.driver.get(self.base_url)
-        element = self.driver.find_element_by_class_name("nav-input")
+        element = self.driver.find_element_by_id("twotabsearchtextbox")
         element.send_keys(self.search_term)
         element.send_keys(Keys.ENTER)
         time.sleep(2)
