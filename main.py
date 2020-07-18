@@ -1,4 +1,24 @@
 from selenium import webdriver
 
-browser = webdriver.Chrome()
-browser.get('http://seleniumhq.org/')
+DIRECTORY = 'reports'
+NAME = 'PS4'
+CURRENCY = '$'
+MIN_PRICE = '275'
+MAX_PRICE = '650'
+FILTERS = {
+    'min' = MIN_PRICE,
+    'max' = MAX_PRICE
+}
+BASE_URL = "http://www.amazon.com/"
+
+def get_chrome_driver(options):
+    return webdriver.Chrome(chrome_options =options)
+
+def get_web_driver_options():
+    return webdriver.ChromeOptions()
+
+def set_ignore_certificate_error(options):
+    options.add_argument('--ignore-certicate-errors')
+
+def set_browser_as_incognito(options):
+    options.add_argument('--incongito')
